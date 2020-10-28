@@ -8,9 +8,6 @@ import freemarker.template.TemplateExceptionHandler;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * Created by Ay on 2016/7/27.
- */
 public class FreeMarkerTemplateUtils {
 
     private FreeMarkerTemplateUtils(){}

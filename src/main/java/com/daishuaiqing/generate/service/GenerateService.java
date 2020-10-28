@@ -34,16 +34,16 @@ public class GenerateService {
         if(!controllerPath.exists()) controllerPath.mkdirs();
         File servicePath = new File(System .getProperty("user.dir")+"\\out\\service");
         if(!servicePath.exists()) servicePath.mkdirs();
-        File serviceImplPath = new File(System .getProperty("user.dir")+"\\out\\service\\impl");
-        if(!serviceImplPath.exists()) serviceImplPath.mkdirs();
+//        File serviceImplPath = new File(System .getProperty("user.dir")+"\\out\\service\\impl");
+//        if(!serviceImplPath.exists()) serviceImplPath.mkdirs();
         File daoPath = new File(System .getProperty("user.dir")+"\\out\\dao");
         if(!daoPath.exists()) daoPath.mkdirs();
-        File modelPath = new File(System .getProperty("user.dir")+"\\out\\domain");
+        File modelPath = new File(System .getProperty("user.dir")+"\\out\\model");
         if(!modelPath.exists()) modelPath.mkdirs();
-        File queryPath = new File(System .getProperty("user.dir")+"\\out\\query");
-        if(!queryPath.exists()) queryPath.mkdirs();
-        File dtoPath = new File(System .getProperty("user.dir")+"\\out\\dto");
-        if(!dtoPath.exists()) dtoPath.mkdirs();
+//        File queryPath = new File(System .getProperty("user.dir")+"\\out\\query");
+//        if(!queryPath.exists()) queryPath.mkdirs();
+//        File dtoPath = new File(System .getProperty("user.dir")+"\\out\\dto");
+//        if(!dtoPath.exists()) dtoPath.mkdirs();
         //File viewrPath = new File(System .getProperty("user.dir")+"\\out\\view");
         //if(!viewrPath.exists()) viewrPath.mkdirs();
 //        if(tableName.equals("all")){
@@ -70,14 +70,14 @@ public class GenerateService {
         dataMap.put("package_name",packageName);
         dataMap.put("model_name_uc",StringUtils.replaceUnderLineAndUpperCase(tableName));
         //服务端代码生成的文件
-        generateFileByTemplate("Model.ftl",new File(modelPath+"\\"+StringUtils.replaceUnderLineAndUpperCase(tableName)+".java"),dataMap);
+        generateFileByTemplate("Model.ftl",new File(modelPath+"\\"+StringUtils.replaceUnderLineAndUpperCase(tableName)+"VO.java"),dataMap);
         generateFileByTemplate("Controller.ftl",new File(controllerPath+"\\"+StringUtils.replaceUnderLineAndUpperCase(tableName)+"Controller.java"),dataMap);
-        generateFileByTemplate("SetValue.ftl",new File(path+"\\"+StringUtils.replaceUnderLineAndUpperCase(tableName)+"SetValue.java"),dataMap);
-        generateFileByTemplate("Dao.ftl",new File(daoPath+"\\"+StringUtils.replaceUnderLineAndUpperCase(tableName)+"Dao.java"),dataMap);
-        generateFileByTemplate("Service.ftl",new File(servicePath+"\\"+StringUtils.replaceUnderLineAndUpperCase(tableName)+"Service.java"),dataMap);
-        generateFileByTemplate("ServiceImpl.ftl",new File(serviceImplPath+"\\"+StringUtils.replaceUnderLineAndUpperCase(tableName)+"ServiceImpl.java"),dataMap);
-        generateFileByTemplate("Query.ftl",new File(queryPath+"\\"+StringUtils.replaceUnderLineAndUpperCase(tableName)+"Query.java"),dataMap);
-        generateFileByTemplate("Dto.ftl",new File(dtoPath+"\\"+StringUtils.replaceUnderLineAndUpperCase(tableName)+"Param.java"),dataMap);
+        //generateFileByTemplate("SetValue.ftl",new File(path+"\\"+StringUtils.replaceUnderLineAndUpperCase(tableName)+"SetValue.java"),dataMap);
+        generateFileByTemplate("Dao.ftl",new File(daoPath+"\\"+StringUtils.replaceUnderLineAndUpperCase(tableName)+"DAO.java"),dataMap);
+        //generateFileByTemplate("Service.ftl",new File(servicePath+"\\"+StringUtils.replaceUnderLineAndUpperCase(tableName)+"Service.java"),dataMap);
+        generateFileByTemplate("ServiceImpl.ftl",new File(servicePath+"\\"+StringUtils.replaceUnderLineAndUpperCase(tableName)+"Service.java"),dataMap);
+        //generateFileByTemplate("Query.ftl",new File(queryPath+"\\"+StringUtils.replaceUnderLineAndUpperCase(tableName)+"Query.java"),dataMap);
+        //generateFileByTemplate("Dto.ftl",new File(dtoPath+"\\"+StringUtils.replaceUnderLineAndUpperCase(tableName)+"Param.java"),dataMap);
         //前端View代码生成
         //generateFileByTemplate("list.ftl",new File(viewrPath+"\\"+StringUtils.replaceUnderLineAndUpperCase(tableName)+"List.vue"),dataMap);
         //generateFileByTemplate("edit.ftl",new File(viewrPath+"\\"+StringUtils.replaceUnderLineAndUpperCase(tableName)+".vue"),dataMap);

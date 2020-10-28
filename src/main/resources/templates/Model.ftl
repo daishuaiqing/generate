@@ -1,16 +1,6 @@
-import javax.persistence.*;
 import lombok.Data;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import org.hibernate.annotations.SQLDelete;
-import org.hibernate.annotations.Where;
+import java.util.Date;
 
-import java.time.LocalDateTime;
-
-@Entity
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@SQLDelete(sql = "update ${model_name} set is_deleted=1 where id=?")
-@Where(clause = "is_deleted = 0")
-@Table(name = "${model_name}")
 @Data
 public class ${model_name_uc}  {
 
@@ -26,7 +16,7 @@ public class ${model_name_uc}  {
      * 是否删除
      */
     @Column(name = "is_deleted")
-    private Integer deleted;
+    private Integer isDeleted;
 
     <#else>
     /**
@@ -38,11 +28,11 @@ public class ${model_name_uc}  {
 
     </#if>
     <#if model.data_type = 'datetime'>
-    private LocalDateTime ${model.column_name_uc?uncap_first};
+    private Date ${model.column_name_uc?uncap_first};
 
     </#if>
     <#if model.data_type = 'date'>
-    private LocalDate ${model.column_name_uc?uncap_first};
+    private Date ${model.column_name_uc?uncap_first};
 
     </#if>
     <#if model.data_type = 'time'>

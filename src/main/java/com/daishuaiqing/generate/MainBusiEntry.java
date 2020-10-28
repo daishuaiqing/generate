@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class MainBusiEntry implements CommandLineRunner {
 
     @Autowired
-    GenerateService generateService;
+    private GenerateService generateService;
 
     @Override
     public void run(String... args) throws Exception {

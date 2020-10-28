@@ -1,4 +1,4 @@
-import ${package_name}.domain.${model_name_uc};
+import ${package_name}.module.${model_name_uc}VO;
 import ${package_name}.dto.${model_name_uc}Param;
 import ${package_name}.query.${model_name_uc}Query;
 import ${package_name}.vo.CommonResult;
